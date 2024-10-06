@@ -14,19 +14,16 @@
     beStrictAboutOutputDuringTests="true"
     cacheDirectory=".phpunit.cache"
     backupStaticProperties="false"
+
+    displayDetailsOnTestsThatTriggerErrors="true"
+    displayDetailsOnTestsThatTriggerNotices="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
 >
     <testsuites>
-        <testsuite name="VendorName Test Suite">
+        <testsuite name="InPunktoNET Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage>
-        <report>
-            <html outputDirectory="build/coverage"/>
-            <text outputFile="build/coverage.txt"/>
-            <clover outputFile="build/logs/clover.xml"/>
-        </report>
-    </coverage>
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>
