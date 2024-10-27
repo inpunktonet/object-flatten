@@ -9,7 +9,7 @@ class ObjectFlattenClass
     private $keySeparator = '.';
 
     /**
-     * Convert an array or object to a flatten CSV string
+     * Convert an array to a flatten CSV string
      *
      * @param array|object $data
      *
@@ -28,12 +28,12 @@ class ObjectFlattenClass
     }
 
     /**
-     * Convert an array of flatten strings to an object
-     * @param $flattenedStrings
+     * Convert an array of flatten strings to an array
+     * @param array $flattenedStrings
      *
      * @return false|string
      */
-    public function toObject($flattenedStrings): string
+    public function toObject(array $flattenedStrings): string
     {
         $result = [];
 
