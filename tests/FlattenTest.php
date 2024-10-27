@@ -35,7 +35,7 @@ class FlattenTest extends TestCase
             ],
         ];
 
-        $expectedCsv = "company".$this->testData['keySeparator']."name".$this->testData['keyValueSeparator']."InPunktoNET\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['keyValueSeparator']."1\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['keyValueSeparator']."3\n";
+        $expectedCsv = "company".$this->testData['keySeparator']."name".$this->testData['keyValueSeparator']."InPunktoNET".PHP_EOL."company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['keyValueSeparator']."1".PHP_EOL."company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['keyValueSeparator']."3".PHP_EOL;
 
         $this->assertEquals($expectedCsv, $objectFlatten->toFlattenString($data));
     }

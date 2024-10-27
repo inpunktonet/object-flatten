@@ -54,7 +54,7 @@ class ObjectFlattenClass
                 $current = &$current[$k];
             }
 
-            $current = str_replace("\\n", "\n", $value);
+            $current = str_replace("\\".PHP_EOL, "\n", $value);
         }
 
         return json_encode($result);
