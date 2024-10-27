@@ -9,7 +9,7 @@ class FlattenTest extends TestCase
 {
     private $testData = [
         'keySeparator' => '_',
-        'columnDelimiter' => '\t',
+        'keyValueSeparator' => '\t',
     ];
 
     /**
@@ -20,7 +20,7 @@ class FlattenTest extends TestCase
     public function testToFlattenString(): void
     {
         $objectFlatten = new ObjectFlattenClass();
-        $objectFlatten->setColumnDelemiter($this->testData['columnDelimiter']);
+        $objectFlatten->setKeyValueSeparator($this->testData['keyValueSeparator']);
         $objectFlatten->setKeySeparator($this->testData['keySeparator']);
 
         $data = [
@@ -35,7 +35,7 @@ class FlattenTest extends TestCase
             ],
         ];
 
-        $expectedCsv = "company".$this->testData['keySeparator']."name".$this->testData['columnDelimiter']."InPunktoNET\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['columnDelimiter']."1\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['columnDelimiter']."3\n";
+        $expectedCsv = "company".$this->testData['keySeparator']."name".$this->testData['keyValueSeparator']."InPunktoNET\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['keyValueSeparator']."1\ncompany".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['keyValueSeparator']."3\n";
 
         $this->assertEquals($expectedCsv, $objectFlatten->toFlattenString($data));
     }
@@ -48,12 +48,12 @@ class FlattenTest extends TestCase
     public function testToObject(): void
     {
         $objectFlatten = new ObjectFlattenClass();
-        $objectFlatten->setColumnDelemiter($this->testData['columnDelimiter']);
+        $objectFlatten->setKeyValueSeparator($this->testData['keyValueSeparator']);
         $objectFlatten->setKeySeparator($this->testData['keySeparator']);
         $flattenedStrings = [
-            "company".$this->testData['keySeparator']."name".$this->testData['columnDelimiter']."InPunktoNET",
-            "company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['columnDelimiter']."1",
-            "company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['columnDelimiter']."3",
+            "company".$this->testData['keySeparator']."name".$this->testData['keyValueSeparator']."InPunktoNET",
+            "company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level".$this->testData['keyValueSeparator']."1",
+            "company".$this->testData['keySeparator']."depth".$this->testData['keySeparator']."level2".$this->testData['keySeparator']."level3".$this->testData['keyValueSeparator']."3",
         ];
 
         $expectedObject = json_encode([

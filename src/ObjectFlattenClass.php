@@ -4,7 +4,7 @@ namespace InPunktoNET\ObjectFlatten;
 
 class ObjectFlattenClass
 {
-    private $columnDelemiter = ';';
+    private $keyValueSeparator = ';';
 
     private $keySeparator = '.';
 
@@ -21,7 +21,7 @@ class ObjectFlattenClass
         $flatten = $this->flatten($data);
 
         foreach ($flatten as $key => $value) {
-            $output .= $key.$this->columnDelemiter.$value.PHP_EOL;
+            $output .= $key.$this->keyValueSeparator.$value.PHP_EOL;
         }
 
         return $output;
@@ -38,11 +38,11 @@ class ObjectFlattenClass
         $result = [];
 
         foreach ($flattenedStrings as $flattenedString) {
-            if (str_contains($flattenedString, $this->columnDelemiter) === false) {
+            if (str_contains($flattenedString, $this->keyValueSeparator) === false) {
                 continue;
             }
 
-            list($key, $value) = explode($this->columnDelemiter, $flattenedString);
+            list($key, $value) = explode($this->keyValueSeparator, $flattenedString);
 
             $keys = explode($this->keySeparator, $key);
             $current = &$result;
@@ -66,9 +66,9 @@ class ObjectFlattenClass
      * @param string $delemiter
      * @return ObjectFlattenClass
      */
-    public function setColumnDelemiter(string $delemiter): self
+    public function setkeyValueSeparator(string $delemiter): self
     {
-        $this->columnDelemiter = $delemiter;
+        $this->keyValueSeparator = $delemiter;
 
         return $this;
     }
